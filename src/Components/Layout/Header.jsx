@@ -1,6 +1,6 @@
 import React from "react";
 import logo from "../../images/react.png";
-import { Link } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 const Header = () => {
   return (
     <div>
@@ -26,42 +26,68 @@ const Header = () => {
           <div className="collapse navbar-collapse" id="navbarSupportedContent">
             <ul className="navbar-nav me-auto mb-2 mb-lg-0">
               <li className="nav-item">
-                <Link className="nav-link active" aria-current="page" to="/">
+                <NavLink
+                  className={({ isActive }) =>
+                    isActive ? "nav-link active text-warning" : "nav-link"
+                  }
+                  aria-current="page"
+                  to="/"
+                >
                   Home
-                </Link>
+                </NavLink>
               </li>
               <li className="nav-item">
-                <Link className="nav-link" to="/about">
+                <NavLink
+                  className={({ isActive }) =>
+                    isActive ? "nav-link active text-warning" : "nav-link"
+                  }
+                  to="/about"
+                >
                   About
-                </Link>
+                </NavLink>
+              </li>
+              <li className="nav-item">
+                <NavLink
+                  className={({ isActive }) =>
+                    isActive ? "nav-link active text-warning" : "nav-link"
+                  }
+                  to="/cryptodetail/ETH/12"
+                >
+                  Crypto Details
+                </NavLink>
               </li>
               <li className="nav-item dropdown">
                 <Link
                   className="nav-link dropdown-toggle"
-                  href="#"
+                  to="/product"
                   role="button"
                   data-bs-toggle="dropdown"
                   aria-expanded="false"
                 >
-                  Dropdown
+                  Product
                 </Link>
                 <ul className="dropdown-menu">
                   <li>
-                    <Link className="dropdown-item" href="#">
-                      Action
+                    <Link className="dropdown-item" to="/product/create">
+                      Create Product
                     </Link>
                   </li>
                   <li>
-                    <Link className="dropdown-item" href="#">
-                      Another action
+                    <Link className="dropdown-item" to="/product/details">
+                      Product Details
                     </Link>
                   </li>
                   <li>
                     <hr className="dropdown-divider" />
                   </li>
                   <li>
-                    <Link className="dropdown-item" href="#">
-                      Something else here
+                    <Link className="dropdown-item" to="/product/list">
+                      Product List
+                    </Link>
+                  </li>
+                  <li>
+                    <Link className="dropdown-item" to="/product">
+                      Product
                     </Link>
                   </li>
                 </ul>
